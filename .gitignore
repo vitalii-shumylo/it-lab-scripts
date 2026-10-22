@@ -1,0 +1,6 @@
+*.req
+*.crt
+*.crl
+*.pfx
+*.key
+*.log
