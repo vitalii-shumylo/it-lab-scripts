@@ -1,0 +1,25 @@
+# Example Ansible inventory in YAML form, with the same hosts as the INI version in the guide.
+# Use: ansible-inventory -i inventory.example.yml --graph   and   ansible all -i inventory.example.yml -m ping
+# Per-group and per-host variables go in group_vars/<group>.yml and host_vars/<host>.yml next to this file.
+# Target: ansible-core 2.16+ (the RHEL 9 / 10 AppStream package).
+# Full guide: https://learnitlessons.com/articles/ansible-inventory-file-explained/?s=github
+# Written with AI assistance and checked by the author.
+all:
+  hosts:
+    mon1.example.test:
+  children:
+    webservers:
+      hosts:
+        web1.example.test:
+        web2:
+          ansible_host: 10.0.0.22
+    dbservers:
+      hosts:
+        db1:
+          ansible_host: 10.0.0.31
+    linux:
+      children:
+        webservers:
+        dbservers:
+      vars:
+        ansible_user: ansible
