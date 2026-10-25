@@ -1,6 +1,6 @@
 ﻿# it-lab-scripts
 
-Small, generic scripts for building and checking an IT home lab: Hyper-V, Active Directory, Group Policy, a two-tier PKI and a few Linux helpers. They are the scripts behind the step-by-step guides on [learnitlessons.com](https://learnitlessons.com), cleaned up so you can run them with your own names and addresses.
+Small, generic scripts for building and checking an IT home lab: Hyper-V, Active Directory, Group Policy, a two-tier PKI, failover clustering, iSCSI, networking, Ansible and a few Linux helpers. They are the scripts behind the step-by-step guides on [learnitlessons.com](https://learnitlessons.com), cleaned up so you can run them with your own names and addresses.
 
 I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab work, so every script here has been run in a lab before it is shared. Use them in a lab first, not on a production domain.
 
@@ -31,6 +31,8 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | `FSMO.ps1` | Shows the five FSMO roles; can move or (with `-Seize`) seize them | [FSMO roles explained](https://learnitlessons.com/articles/fsmo-roles-explained/) |
 | `New-LabPasswordPolicy.ps1` | Fine-grained password policy applied to a group | [Fine-grained password policy](https://learnitlessons.com/articles/fine-grained-password-policy/) |
 | `Find-KerberoastableAccounts.ps1` | Read-only: accounts with an SPN and recent RC4 service tickets | [Kerberoasting and how to prevent it](https://learnitlessons.com/articles/kerberoasting-explained-prevention/) |
+| `Get-AccountLockoutSource.ps1` | Read-only: lockout state, policy and 4740 events from the PDC emulator; optional unlock | [AD account keeps locking out](https://learnitlessons.com/articles/ad-account-lockout-troubleshooting/?s=github) |
+| `Test-AdDnsSrvRecords.ps1` | Read-only: SRV records, DC locator, client DNS, dcdiag dns; -Repair re-registers | [DNS SRV records in Active Directory](https://learnitlessons.com/articles/dns-srv-records-active-directory/?s=github) |
 
 ### group-policy
 
@@ -44,6 +46,7 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 |---|---|---|
 | `Install-OfflineRootCA.ps1` | Standalone root CA with lab-friendly CRL and validity settings | [Two-tier PKI with an offline root](https://learnitlessons.com/articles/pki-two-tier-ca-design/) |
 | `Test-CertificationAuthority.ps1` | Read-only: CA answers, name, CRL and validity settings, service state | same |
+| `Update-CrlAndCheck.ps1` | Publishes a new CRL, shows its validity window; optional OCSP role | [CRL vs OCSP](https://learnitlessons.com/articles/crl-vs-ocsp-certificate-revocation/?s=github) |
 
 ### linux
 
@@ -53,6 +56,32 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | `ping-hosts.sh` | Pings each host in a file and prints up / DOWN | [Bash for loops for sysadmins](https://learnitlessons.com/articles/bash-for-loops-sysadmins/) |
 | `rotate-log.sh` | Numbered log rotation | same |
 | `rename-extensions.sh` | Renames `*.jpeg` to `*.jpg` and so on, never overwriting | same |
+| `disable-root-ssh.sh` | Root SSH login off through a drop-in file, plus a small sudoers hardening file (RHEL family) | [Disable root SSH login and use sudo](https://learnitlessons.com/articles/disable-root-ssh-login-sudo/?s=github) |
+
+### failover-cluster
+
+| Script | What it does | Guide |
+|---|---|---|
+| `Get-ClusterQuorumReport.ps1` | Node votes and quorum report; optional validation and witness change | [Failover cluster quorum explained](https://learnitlessons.com/articles/failover-cluster-quorum-explained/?s=github) |
+
+### storage
+
+| Script | What it does | Guide |
+|---|---|---|
+| `New-LabIscsiTarget.ps1` | iSCSI target on Windows Server, or the client side that connects and formats the LUN | [iSCSI target on Windows Server](https://learnitlessons.com/articles/iscsi-target-windows-server/?s=github) |
+
+### networking
+
+| Script | What it does | Guide |
+|---|---|---|
+| `Get-SubnetTable.ps1` | Usable hosts per prefix; mask, first/last host and broadcast for one network | [Choose a subnet mask (CIDR)](https://learnitlessons.com/articles/subnet-mask-cidr-explained/?s=github) |
+
+### ansible
+
+| File | What it does | Guide |
+|---|---|---|
+| `inventory.example.yml` | Example YAML inventory (web, db, linux parent group) | [Ansible inventory file explained](https://learnitlessons.com/articles/ansible-inventory-file-explained/?s=github) |
+| `ansible.cfg.example` | Points ansible at the inventory without -i | [same](https://learnitlessons.com/articles/ansible-inventory-file-explained/?s=github) |
 
 ## How to run
 
