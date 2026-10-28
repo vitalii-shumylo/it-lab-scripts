@@ -19,6 +19,7 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | `New-LabSwitch.ps1` | Internal Hyper-V switch with NAT, so VMs reach the internet without joining your home network | [Hyper-V lab on Windows 11](https://learnitlessons.com/articles/hyper-v-lab-windows-11/) |
 | `New-LabVM.ps1` | Generation 2 VM with an ISO attached and set as first boot device | same |
 | `Checkpoint-LabVM.ps1` | Stops a VM cleanly and takes a named checkpoint | same |
+| `Get-LabSwitchReport.ps1` | Read-only: switches by type, host adapters, NAT networks, VM adapter connections | [External, internal and private virtual switches in Hyper-V](https://learnitlessons.com/articles/hyper-v-virtual-switch-types/?s=github) |
 
 ### active-directory
 
@@ -33,12 +34,15 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | `Find-KerberoastableAccounts.ps1` | Read-only: accounts with an SPN and recent RC4 service tickets | [Kerberoasting and how to prevent it](https://learnitlessons.com/articles/kerberoasting-explained-prevention/) |
 | `Get-AccountLockoutSource.ps1` | Read-only: lockout state, policy and 4740 events from the PDC emulator; optional unlock | [AD account keeps locking out](https://learnitlessons.com/articles/ad-account-lockout-troubleshooting/?s=github) |
 | `Test-AdDnsSrvRecords.ps1` | Read-only: SRV records, DC locator, client DNS, dcdiag dns; -Repair re-registers | [DNS SRV records in Active Directory](https://learnitlessons.com/articles/dns-srv-records-active-directory/?s=github) |
+| `Get-ProtectedUsersReport.ps1` | Read-only report of Protected Users members and domain level; optional -Add / -Remove | [Protected Users group in Active Directory](https://learnitlessons.com/articles/protected-users-group-active-directory/?s=github) |
+| `Test-DomainJoinReadiness.ps1` | Read-only: edition, DNS, SRV record and port 389 before a domain join; -Verify after it | [Join a computer to a domain with PowerShell](https://learnitlessons.com/articles/join-windows-computer-to-domain-powershell/?s=github) |
 
 ### group-policy
 
 | Script | What it does | Guide |
 |---|---|---|
 | `Get-GpoDiagnostics.ps1` | First checks when a GPO is not applying: refresh, HTML report, permissions, inheritance, versions, events | [Group Policy not applying](https://learnitlessons.com/articles/group-policy-not-applying/) |
+| `Get-GpoPrecedence.ps1` | Read-only: linked and inherited GPOs, link order, blocked inheritance; optional gpresult report | [GPO precedence: LSDOU, link order, Enforced](https://learnitlessons.com/articles/gpo-link-order-lsdou-precedence/?s=github) |
 
 ### pki
 
@@ -57,6 +61,7 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | `rotate-log.sh` | Numbered log rotation | same |
 | `rename-extensions.sh` | Renames `*.jpeg` to `*.jpg` and so on, never overwriting | same |
 | `disable-root-ssh.sh` | Root SSH login off through a drop-in file, plus a small sudoers hardening file (RHEL family) | [Disable root SSH login and use sudo](https://learnitlessons.com/articles/disable-root-ssh-login-sudo/?s=github) |
+| `show-active-config.sh` | Read-only: a config file without comments and empty lines, or where a setting appears under a folder | [grep examples for Linux](https://learnitlessons.com/articles/grep-examples-linux/?s=github) |
 
 ### failover-cluster
 
@@ -75,6 +80,12 @@ I'm Vitalii Shumylo, an IT instructor. I write these guides and courses from lab
 | Script | What it does | Guide |
 |---|---|---|
 | `Get-SubnetTable.ps1` | Usable hosts per prefix; mask, first/last host and broadcast for one network | [Choose a subnet mask (CIDR)](https://learnitlessons.com/articles/subnet-mask-cidr-explained/?s=github) |
+
+### windows-security
+
+| Script | What it does | Guide |
+|---|---|---|
+| `Get-PassTheHashChecks.ps1` | Read-only: is Credential Guard running, and which recent sign-ins used NTLM | [Pass-the-hash attacks and how to stop them](https://learnitlessons.com/articles/pass-the-hash-attack-explained/?s=github) |
 
 ### ansible
 
